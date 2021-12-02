@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  client:
+    container_name: client-container
+    build: ./client
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./client:/app"
+      - "./client/node_modules:/src/node_modules"
+    stdin_open: true
+  server:
+    container_name: server-container
+    depends_on:
+      - mongodb
+    build: ./server
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server:/src
+      - ./server/node_modules:/src/node_modules
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
