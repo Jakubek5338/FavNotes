@@ -1,17 +1,10 @@
 import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import MainTemplate from '../components/templates/MainTemplate';
-import Notes from './Notes';
+import AuthenticatedApp from './AuthenticatedApp';
+import UnauthenticatedApp from './UnauthenticatedApp';
 
 function Root() {
-  return (
-    <MainTemplate>
-      <Routes>
-        <Route path="/" element={<Navigate to="/notes" />} />
-        <Route path="/notes" element={<Notes />} />
-      </Routes>
-    </MainTemplate>
-  );
+  const auth = true;
+  return <>{auth ? <AuthenticatedApp /> : <UnauthenticatedApp />}</>;
 }
 
 export default Root;
