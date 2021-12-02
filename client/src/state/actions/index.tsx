@@ -12,4 +12,14 @@ interface IResetAction {
   type: 'reset';
 }
 
-export type Action = IAddAction | ISubtransaction | IResetAction;
+interface IAddToDoAction {
+  type: 'addtodo';
+  payload: string;
+}
+
+interface IRemoveToDoAction {
+  type: 'removetodo';
+  payload: string;
+}
+
+export type Action = IAddAction | ISubtransaction | IResetAction | IAddToDoAction | IRemoveToDoAction;

@@ -27,3 +27,21 @@ export const reset = () => {
     });
   };
 };
+
+export const addtodo = (value: string) => {
+  return (dispatch: Dispatch) => {
+    dispatch({
+      type: ActionType.ADDTODO,
+      payload: value,
+    });
+  };
+};
+
+export const removetodo = (value: string) => {
+  return (dispatch: Dispatch) => {
+    dispatch({
+      type: ActionType.REMOVETODO,
+      payload: value,
+    });
+  };
+};
