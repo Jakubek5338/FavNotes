@@ -12,8 +12,6 @@ services:
     stdin_open: true
   server:
     container_name: server-container
-    depends_on:
-      - mongodb
     build: ./server
     ports:
       - "8080:8080"

@@ -23,7 +23,7 @@ function ToDo() {
               title: '',
             }}
             onSubmit={async (values, { resetForm }) => {
-              addtodo(values.title);
+              addtodo('title');
               resetForm();
             }}
           >
