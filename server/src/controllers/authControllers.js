@@ -17,6 +17,8 @@ class AuthController {
         const email = req.body.email;
         const password = hashedPassword;
 
+        console.log(email, req.body.password);
+
         let user;
 
         try {
@@ -25,7 +27,7 @@ class AuthController {
         }catch(err) {
             return res.status(422).json({message: err.message});
         }
-        res.send('login');
+        res.status(200).send('login');
 
     }
     async login(req, res) {
@@ -40,6 +42,9 @@ class AuthController {
 
         //Create and assign a token
         res.send('login');
+    }
+    async token(req, res){
+        res.send('login')
     }
 }
 

@@ -18,8 +18,8 @@ const UnauthenticatedApp = () => {
         onSubmit={async (values, { resetForm }) => {
           {
             newUser
-              ? signUp({ login: values.email, password: values.password })
-              : signIn({ login: values.email, password: values.password });
+              ? signUp({ email: values.email, password: values.password })
+              : signIn({ email: values.email, password: values.password });
           }
           resetForm();
         }}
@@ -28,7 +28,7 @@ const UnauthenticatedApp = () => {
           <>
             <h1>Please register</h1>
             <Form>
-              <Field type="text" id="login" name="login" placeholder="email" />
+              <Field type="text" id="email" name="email" placeholder="email" />
               <Field type="text" id="password" name="password" placeholder="password" />
               <button type="submit">Register</button>
             </Form>
@@ -38,7 +38,7 @@ const UnauthenticatedApp = () => {
           <>
             <h1>Please Log In</h1>
             <Form>
-              <Field type="text" id="login" name="login" placeholder="email" />
+              <Field type="text" id="email" name="email" placeholder="email" />
               <Field type="text" id="password" name="password" placeholder="password" />
               <button type="submit">Log In</button>
             </Form>

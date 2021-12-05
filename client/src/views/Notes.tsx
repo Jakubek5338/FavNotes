@@ -11,6 +11,7 @@ function Notes() {
   };
   return (
     <div className="App">
+      <h1>Notes</h1>
       <h1>Wynik: </h1>
       <button onClick={loginAction} type="submit">
         Click Me
