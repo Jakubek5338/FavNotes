@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
+import ToDoCard from '../components/atoms/ToDoCard/ToDoCard';
 
 const ToDo: FC = () => {
   return (
     <div>
-      <h1>ToDo</h1>
+      <ToDoCard />
     </div>
   );
 };

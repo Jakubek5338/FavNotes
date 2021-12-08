@@ -1,25 +1,24 @@
 import { Action } from '../actions';
 
 const initialState = {
-  notes: [
+  sides: [
     {
       title: 'Add Sides',
-      body: 'Simple note',
     },
   ],
 };
 
 const SidesReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case 'addnote':
+    case 'addside':
       return {
         ...state,
-        notes: [...state.notes, { title: action.title, body: action.body }],
+        sides: [...state.sides, { title: action.payload }],
       };
-    case 'removenote':
+    case 'removeside':
       return {
         ...state,
-        notes: [...state.notes.filter((item) => item.title !== action.payload)],
+        sides: [...state.sides.filter((item) => item.title !== action.payload)],
       };
     default:
       return state;

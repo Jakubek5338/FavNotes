@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
+import SidesCard from '../components/atoms/SidesCard/SidesCard';
 
 const Sides: FC = () => {
   return (
     <div>
-      <h1>Sides</h1>
+      <SidesCard />
     </div>
   );
 };

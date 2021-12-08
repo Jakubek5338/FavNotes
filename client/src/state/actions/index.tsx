@@ -1,15 +1,12 @@
-interface IAddAction {
-  type: 'add';
-  payload: number;
+interface IAddNoteAction {
+  type: 'addnote';
+  title: string;
+  body: string;
 }
 
-interface ISubtransaction {
-  type: 'subtract';
-  payload: number;
-}
-
-interface IResetAction {
-  type: 'reset';
+interface IRemoveNoteAction {
+  type: 'removenote';
+  payload: string;
 }
 
 interface IAddToDoAction {
@@ -22,4 +19,20 @@ interface IRemoveToDoAction {
   payload: string;
 }
 
-export type Action = IAddAction | ISubtransaction | IResetAction | IAddToDoAction | IRemoveToDoAction;
+interface IAddSideAction {
+  type: 'addside';
+  payload: string;
+}
+
+interface IRemoveSideAction {
+  type: 'removeside';
+  payload: string;
+}
+
+export type Action =
+  | IAddNoteAction
+  | IRemoveNoteAction
+  | IAddToDoAction
+  | IRemoveToDoAction
+  | IAddSideAction
+  | IRemoveSideAction;

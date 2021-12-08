@@ -1,9 +1,9 @@
 import { Action } from '../actions';
 
 const initialState = {
-  todo: [
+  todos: [
     {
-      title: 'Zrobić Zakupy',
+      title: 'Add ToDoS',
     },
   ],
 };
@@ -13,12 +13,12 @@ const ToDoReducer = (state = initialState, action: Action) => {
     case 'addtodo':
       return {
         ...state,
-        todo: [...state.todo, { title: action.payload }],
+        todos: [...state.todos, { title: action.payload }],
       };
     case 'removetodo':
       return {
         ...state,
-        todo: [...state.todo.filter((item) => item.title !== action.payload)],
+        todos: [...state.todos.filter((item) => item.title !== action.payload)],
       };
     default:
       return state;

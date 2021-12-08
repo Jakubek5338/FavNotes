@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import notesReducer from './NotesReducer';
 import todoReducer from './ToDoReducer';
+import sidesReducer from './SidesReducer';
 
 const reducers = combineReducers({
   notes: notesReducer,
-  todo: todoReducer,
+  todos: todoReducer,
+  sides: sidesReducer,
 });
 
 export default reducers;

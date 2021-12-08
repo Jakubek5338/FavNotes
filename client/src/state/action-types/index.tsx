@@ -1,7 +1,8 @@
 export enum ActionType {
-  ADD = 'add',
-  SUBTRACT = 'subtract',
-  RESET = 'reset',
+  ADDNOTE = 'addnote',
+  REMOVENOTE = 'removenote',
   ADDTODO = 'addtodo',
   REMOVETODO = 'removetodo',
+  ADDSIDE = 'addside',
+  REMOVESIDE = 'removeside',
 }

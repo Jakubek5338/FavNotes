@@ -1,29 +1,21 @@
 import { ActionType } from '../action-types';
 import { Dispatch } from 'redux';
-import { Action } from '../actions';
 
-export const add = (value: number) => {
-  return (dispatch: Dispatch<Action>) => {
+export const addnote = (title: string, body: string) => {
+  return (dispatch: Dispatch) => {
     dispatch({
-      type: ActionType.ADD,
-      payload: value,
+      type: ActionType.ADDNOTE,
+      title,
+      body,
     });
   };
 };
 
-export const subtract = (value: number) => {
+export const removenote = (value: string) => {
   return (dispatch: Dispatch) => {
     dispatch({
-      type: ActionType.SUBTRACT,
+      type: ActionType.REMOVENOTE,
       payload: value,
-    });
-  };
-};
-
-export const reset = () => {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: ActionType.RESET,
     });
   };
 };
@@ -41,6 +33,24 @@ export const removetodo = (value: string) => {
   return (dispatch: Dispatch) => {
     dispatch({
       type: ActionType.REMOVETODO,
+      payload: value,
+    });
+  };
+};
+
+export const addside = (value: string) => {
+  return (dispatch: Dispatch) => {
+    dispatch({
+      type: ActionType.ADDSIDE,
+      payload: value,
+    });
+  };
+};
+
+export const removeside = (value: string) => {
+  return (dispatch: Dispatch) => {
+    dispatch({
+      type: ActionType.REMOVESIDE,
       payload: value,
     });
   };
