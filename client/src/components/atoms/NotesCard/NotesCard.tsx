@@ -7,7 +7,7 @@ import { actionCreators, State } from '../../../state';
 const Notes = () => {
   const dispatch = useDispatch();
   const state = useSelector((state: State) => state.notes);
-  const { addnote, removenote } = bindActionCreators(actionCreators, dispatch);
+  const { additem, removeitem } = bindActionCreators(actionCreators, dispatch);
   return (
     <>
       <div>
@@ -16,7 +16,7 @@ const Notes = () => {
             <div key={_id}>
               <h1>{title}</h1>
               <h2>{body}</h2>
-              <button onClick={() => removenote(_id)}>REMOVE</button>
+              <button onClick={() => removeitem(_id, 'notes')}>REMOVE</button>
             </div>
           ))}
           <Formik
@@ -25,7 +25,7 @@ const Notes = () => {
               body: '',
             }}
             onSubmit={async (values, { resetForm }) => {
-              addnote(values.title, values.body);
+              additem(values.title, values.body, 'notes');
               resetForm();
             }}
           >

@@ -3,22 +3,41 @@ import { Action } from '../actions';
 const initialState = {
   sides: [
     {
+      creator: '',
       title: '',
+      type: '',
+      _id: '',
+      _v: '',
     },
   ],
 };
 
 const SidesReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case 'addside':
+    case 'additem':
       return {
         ...state,
-        sides: [...state.sides, { title: action.payload }],
+        [action.itemType]: [
+          ...state.sides,
+          {
+            _id: action._id,
+            title: action.title,
+            body: '',
+            creator: action.creator,
+            type: action.itemType,
+            _v: action._v,
+          },
+        ],
       };
-    case 'removeside':
+    case 'removeitem':
       return {
         ...state,
-        sides: [...state.sides.filter((item) => item.title !== action.payload)],
+        [action.itemType]: [...state.sides.filter((item) => item._id !== action._id)],
+      };
+    case 'fetchitems':
+      return {
+        ...state,
+        sides: action.items,
       };
     default:
       return state;

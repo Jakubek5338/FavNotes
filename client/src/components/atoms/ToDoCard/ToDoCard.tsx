@@ -7,15 +7,15 @@ import { actionCreators, State } from '../../../state';
 function ToDo() {
   const dispatch = useDispatch();
   const state = useSelector((state: State) => state.todos);
-  const { addtodo, removetodo } = bindActionCreators(actionCreators, dispatch);
+  const { additem, removeitem } = bindActionCreators(actionCreators, dispatch);
   return (
     <>
       <div>
         <div>
-          {state.todos.map(({ title }) => (
-            <div key={title}>
+          {state.todos.map(({ title, _id }) => (
+            <div key={_id}>
               <h1>{title}</h1>
-              <button onClick={() => removetodo(title)}>REMOVE</button>
+              <button onClick={() => removeitem(_id, 'todos')}>REMOVE</button>
             </div>
           ))}
           <Formik
@@ -23,7 +23,7 @@ function ToDo() {
               title: '',
             }}
             onSubmit={async (values, { resetForm }) => {
-              addtodo(values.title);
+              additem(values.title, '', 'todos');
               resetForm();
             }}
           >

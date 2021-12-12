@@ -4,10 +4,12 @@ class NoteController {
     async getAllNotes(req, res) {
         let doc;
 
-        let creator = 'Jalub'
+        let creator = 'Jakub'
+
+        const itemType = req.params.itemType
 
         try {
-            doc = await Note.find({creator: creator});
+            doc = await Note.find({creator: creator, type: itemType});
         } catch(err) {
             res.status(500).json({message: err.message});
         }
@@ -27,10 +29,11 @@ class NoteController {
     }
     async saveNote(req, res) {
 
-        const type = req.body.type;
+        const type = req.body.itemType;
         const title = req.body.title;
         const body = req.body.body;
         const creator = req.body.creator;
+
 
         let note;
 

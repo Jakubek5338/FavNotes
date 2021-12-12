@@ -7,16 +7,16 @@ import { actionCreators, State } from '../../../state';
 function Sides() {
   const dispatch = useDispatch();
   const state = useSelector((state: State) => state.sides);
-  const { addside, removeside } = bindActionCreators(actionCreators, dispatch);
+  const { additem, removeitem } = bindActionCreators(actionCreators, dispatch);
 
   return (
     <>
       <div>
         <div>
-          {state.sides.map(({ title }) => (
-            <div key={title}>
+          {state.sides.map(({ title, _id }) => (
+            <div key={_id}>
               <h1>{title}</h1>
-              <button onClick={() => removeside(title)}>REMOVE</button>
+              <button onClick={() => removeitem(_id, 'sides')}>REMOVE</button>
             </div>
           ))}
           <Formik
@@ -24,7 +24,7 @@ function Sides() {
               title: '',
             }}
             onSubmit={async (values, { resetForm }) => {
-              addside(values.title);
+              additem(values.title, '', 'sides');
               resetForm();
             }}
           >

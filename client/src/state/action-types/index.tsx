@@ -1,9 +1,5 @@
 export enum ActionType {
-  ADDNOTE = 'addnote',
-  REMOVENOTE = 'removenote',
+  ADDITEM = 'additem',
+  REMOVEITEM = 'removeitem',
   FETCHITEMS = 'fetchitems',
-  ADDTODO = 'addtodo',
-  REMOVETODO = 'removetodo',
-  ADDSIDE = 'addside',
-  REMOVESIDE = 'removeside',
 }

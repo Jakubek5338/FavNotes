@@ -3,22 +3,41 @@ import { Action } from '../actions';
 const initialState = {
   todos: [
     {
-      title: 'Add ToDoS',
+      creator: '',
+      title: '',
+      type: '',
+      _id: '',
+      _v: '',
     },
   ],
 };
 
 const ToDoReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case 'addtodo':
+    case 'additem':
       return {
         ...state,
-        todos: [...state.todos, { title: action.payload }],
+        [action.itemType]: [
+          ...state.todos,
+          {
+            _id: action._id,
+            title: action.title,
+            body: '',
+            creator: action.creator,
+            type: action.itemType,
+            _v: action._v,
+          },
+        ],
       };
-    case 'removetodo':
+    case 'removeitem':
       return {
         ...state,
-        todos: [...state.todos.filter((item) => item.title !== action.payload)],
+        [action.itemType]: [...state.todos.filter((item) => item._id !== action._id)],
+      };
+    case 'fetchitems':
+      return {
+        ...state,
+        todos: action.items,
       };
     default:
       return state;

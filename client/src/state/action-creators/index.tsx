@@ -2,23 +2,26 @@ import { ActionType } from '../action-types';
 import { Dispatch } from 'redux';
 import axios from 'axios';
 
-export const addnote = (title: string, body: string) => {
-  const type = 'note';
-  const creator = 'Jalub';
+export const additem = (title: string, body: string, itemType: string) => {
+  const creator = 'Jakub';
   return async (dispatch: Dispatch) => {
     try {
       const response = await axios.post('http://localhost:8080/api/note', {
-        type,
+        itemType,
         creator,
         title,
         body,
       });
-      const id = response.data._id;
+      const _id = response.data._id;
+      const _v = response.data._v;
       dispatch({
-        type: ActionType.ADDNOTE,
-        id,
+        type: ActionType.ADDITEM,
+        _id,
         title,
         body,
+        creator,
+        itemType,
+        _v,
       });
     } catch (err) {
       console.log(err);
@@ -26,13 +29,14 @@ export const addnote = (title: string, body: string) => {
   };
 };
 
-export const removenote = (id: string) => {
+export const removeitem = (_id: string, itemType: string) => {
   return async (dispatch: Dispatch) => {
     try {
-      await axios.delete(`http://localhost:8080/api/note/${id}`);
+      await axios.delete(`http://localhost:8080/api/note/${_id}`);
       dispatch({
-        type: ActionType.REMOVENOTE,
-        id,
+        type: ActionType.REMOVEITEM,
+        _id,
+        itemType,
       });
     } catch (err) {
       console.log(err);
@@ -40,54 +44,17 @@ export const removenote = (id: string) => {
   };
 };
 
-export const fetchItems = () => {
+export const fetchItems = (itemType: string) => {
   return async (dispatch: Dispatch) => {
     try {
-      const response = await axios.get('http://localhost:8080/api/note');
+      const response = await axios.get(`http://localhost:8080/api/note/${itemType}`);
       const items = response.data;
       dispatch({
         type: ActionType.FETCHITEMS,
         items,
       });
-      console.log(items);
     } catch (err) {
       console.log(err);
     }
-  };
-};
-
-export const addtodo = (value: string) => {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: ActionType.ADDTODO,
-      payload: value,
-    });
-  };
-};
-
-export const removetodo = (value: string) => {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: ActionType.REMOVETODO,
-      payload: value,
-    });
-  };
-};
-
-export const addside = (value: string) => {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: ActionType.ADDSIDE,
-      payload: value,
-    });
-  };
-};
-
-export const removeside = (value: string) => {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: ActionType.REMOVESIDE,
-      payload: value,
-    });
   };
 };

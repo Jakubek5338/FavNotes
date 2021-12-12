@@ -15,18 +15,25 @@ const initialState = {
 
 const SidesReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case 'addnote':
+    case 'additem':
       return {
         ...state,
-        notes: [
+        [action.itemType]: [
           ...state.notes,
-          { _id: action._id, title: action.title, body: action.body, creator: 'osdn', type: 'sdvk', _v: '0' },
+          {
+            _id: action._id,
+            title: action.title,
+            body: action.body,
+            creator: action.creator,
+            type: action.itemType,
+            _v: action._v,
+          },
         ],
       };
-    case 'removenote':
+    case 'removeitem':
       return {
         ...state,
-        notes: [...state.notes.filter((item) => item._id !== action.id)],
+        [action.itemType]: [...state.notes.filter((item) => item._id !== action._id)],
       };
     case 'fetchitems':
       return {

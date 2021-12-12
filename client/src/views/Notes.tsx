@@ -8,7 +8,7 @@ function Notes() {
   const dispatch = useDispatch();
   const { fetchItems } = bindActionCreators(actionCreators, dispatch);
   useEffect(() => {
-    fetchItems();
+    fetchItems('notes');
   });
   return (
     <div>
