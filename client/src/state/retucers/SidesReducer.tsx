@@ -3,7 +3,7 @@ import { Action } from '../actions';
 const initialState = {
   sides: [
     {
-      title: 'Add Sides',
+      title: '',
     },
   ],
 };

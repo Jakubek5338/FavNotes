@@ -1,12 +1,18 @@
 interface IAddNoteAction {
   type: 'addnote';
+  _id: string;
   title: string;
   body: string;
 }
 
 interface IRemoveNoteAction {
   type: 'removenote';
-  payload: string;
+  id: string;
+}
+
+interface IFetchItemsAction {
+  type: 'fetchitems';
+  items: Array<{ _id: string; title: string; body: string; creator: string; type: string; _v: string }>;
 }
 
 interface IAddToDoAction {
@@ -35,4 +41,5 @@ export type Action =
   | IAddToDoAction
   | IRemoveToDoAction
   | IAddSideAction
-  | IRemoveSideAction;
+  | IRemoveSideAction
+  | IFetchItemsAction;

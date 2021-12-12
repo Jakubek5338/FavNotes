@@ -12,11 +12,11 @@ const Notes = () => {
     <>
       <div>
         <div>
-          {state.notes.map(({ title, body }) => (
-            <div key={title}>
+          {state.notes.map(({ title, body, _id }) => (
+            <div key={_id}>
               <h1>{title}</h1>
               <h2>{body}</h2>
-              <button onClick={() => removenote(title)}>REMOVE</button>
+              <button onClick={() => removenote(_id)}>REMOVE</button>
             </div>
           ))}
           <Formik

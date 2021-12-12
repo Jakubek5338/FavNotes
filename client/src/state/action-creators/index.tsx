@@ -1,22 +1,58 @@
 import { ActionType } from '../action-types';
 import { Dispatch } from 'redux';
+import axios from 'axios';
 
 export const addnote = (title: string, body: string) => {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: ActionType.ADDNOTE,
-      title,
-      body,
-    });
+  const type = 'note';
+  const creator = 'Jalub';
+  return async (dispatch: Dispatch) => {
+    try {
+      const response = await axios.post('http://localhost:8080/api/note', {
+        type,
+        creator,
+        title,
+        body,
+      });
+      const id = response.data._id;
+      dispatch({
+        type: ActionType.ADDNOTE,
+        id,
+        title,
+        body,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 };
 
-export const removenote = (value: string) => {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: ActionType.REMOVENOTE,
-      payload: value,
-    });
+export const removenote = (id: string) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      await axios.delete(`http://localhost:8080/api/note/${id}`);
+      dispatch({
+        type: ActionType.REMOVENOTE,
+        id,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const fetchItems = () => {
+  return async (dispatch: Dispatch) => {
+    try {
+      const response = await axios.get('http://localhost:8080/api/note');
+      const items = response.data;
+      dispatch({
+        type: ActionType.FETCHITEMS,
+        items,
+      });
+      console.log(items);
+    } catch (err) {
+      console.log(err);
+    }
   };
 };
 

@@ -32,6 +32,9 @@ class AuthController {
     }
     async login(req, res) {
 
+
+        console.log(req.body.email)
+
         //Checking if the email exists
         const user = await User.findOne({email: req.body.email});
         if (!user) return res.status(400).send('Email or password is wrong!');
