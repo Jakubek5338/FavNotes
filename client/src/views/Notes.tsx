@@ -4,17 +4,13 @@ import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../state';
 
-function Notes() {
+const Notes = () => {
   const dispatch = useDispatch();
   const { fetchItems } = bindActionCreators(actionCreators, dispatch);
   useEffect(() => {
     fetchItems('notes');
   });
-  return (
-    <div>
-      <NotesCard />
-    </div>
-  );
-}
+  return <NotesCard />;
+};
 
 export default Notes;

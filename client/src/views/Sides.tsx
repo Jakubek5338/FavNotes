@@ -4,17 +4,13 @@ import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../state';
 
-function Sides() {
+const Sides = () => {
   const dispatch = useDispatch();
   const { fetchItems } = bindActionCreators(actionCreators, dispatch);
   useEffect(() => {
     fetchItems('sides');
   });
-  return (
-    <div>
-      <SidesCard />
-    </div>
-  );
-}
+  return <SidesCard />;
+};
 
 export default Sides;

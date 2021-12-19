@@ -4,17 +4,13 @@ import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../state';
 
-function ToDo() {
+const ToDo = () => {
   const dispatch = useDispatch();
   const { fetchItems } = bindActionCreators(actionCreators, dispatch);
   useEffect(() => {
     fetchItems('todos');
   });
-  return (
-    <div>
-      <ToDoCard />
-    </div>
-  );
-}
+  return <ToDoCard />;
+};
 
 export default ToDo;

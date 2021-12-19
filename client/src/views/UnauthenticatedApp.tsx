@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AuthTemplate from '../components/templates/AuthTemplate';
 import { Formik, Field, Form } from 'formik';
 import { useAuth } from '../hooks/useAuth';
 
@@ -9,7 +10,7 @@ const UnauthenticatedApp = () => {
   const { signIn, signUp } = useAuth();
 
   return (
-    <div>
+    <AuthTemplate>
       <Formik
         initialValues={{
           email: '',
@@ -46,7 +47,7 @@ const UnauthenticatedApp = () => {
           </>
         )}
       </Formik>
-    </div>
+    </AuthTemplate>
   );
 };
 
