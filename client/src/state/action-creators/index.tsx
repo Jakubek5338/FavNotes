@@ -3,10 +3,13 @@ import { Dispatch } from 'redux';
 import axios from 'axios';
 
 export const additem = (title: string, body: string, itemType: string) => {
-  const creator = 'Jakub';
+  const creator = localStorage.getItem('token');
   return async (dispatch: Dispatch) => {
     try {
       const response = await axios.post('http://localhost:8080/api/note', {
+        headers: {
+          authorization: creator,
+        },
         itemType,
         creator,
         title,
@@ -45,16 +48,23 @@ export const removeitem = (_id: string, itemType: string) => {
 };
 
 export const fetchItems = (itemType: string) => {
-  return async (dispatch: Dispatch) => {
-    try {
-      const response = await axios.get(`http://localhost:8080/api/note/${itemType}`);
-      const items = response.data;
-      dispatch({
-        type: ActionType.FETCHITEMS,
-        items,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const creator = localStorage.getItem('token');
+  if (creator) {
+    return async (dispatch: Dispatch) => {
+      try {
+        const response = await axios.get(`http://localhost:8080/api/note/${itemType}`, {
+          headers: {
+            authorization: creator,
+          },
+        });
+        const items = response.data;
+        dispatch({
+          type: ActionType.FETCHITEMS,
+          items,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  }
 };

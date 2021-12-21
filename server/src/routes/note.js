@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const verify = require('./verifyToken');
 const NoteController = require('../controllers/noteControllers');
 
-router.get('/:itemType', NoteController.getAllNotes);
+router.get('/:itemType',verify, NoteController.getAllNotes);
 router.get('/:_id', NoteController.getNote);
 router.post('/', NoteController.saveNote);
 router.put('/', NoteController.updateNote);

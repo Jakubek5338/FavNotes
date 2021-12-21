@@ -1,10 +1,13 @@
+const jwt = require('jsonwebtoken');
 const Note = require('../models/note');
 
 class NoteController {
     async getAllNotes(req, res) {
         let doc;
 
-        let creator = 'Jakub'
+        const token = req.header('authorization');
+        let decoded = jwt.decode(token);
+        let creator = decoded._id
 
         const itemType = req.params.itemType
 
@@ -32,7 +35,9 @@ class NoteController {
         const type = req.body.itemType;
         const title = req.body.title;
         const body = req.body.body;
-        const creator = req.body.creator;
+        const token = req.body.creator;
+        let decoded = jwt.decode(token);
+        let creator = decoded._id
 
 
         let note;

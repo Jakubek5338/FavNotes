@@ -21,7 +21,7 @@ export const AuthProvider: FC = ({ children }) => {
         try {
           const response = await axios.get('http://localhost:8080/api/user/me', {
             headers: {
-              authorization: `Bearer ${token}`,
+              authorization: token,
             },
           });
           setUser(response.data);

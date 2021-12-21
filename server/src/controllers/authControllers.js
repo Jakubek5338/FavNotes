@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
@@ -27,7 +28,8 @@ class AuthController {
         }catch(err) {
             return res.status(422).json({message: err.message});
         }
-        res.status(200).send('login');
+        const token = jwt.sign({_id: user.email}, process.env.TOKEN_SECRET);
+        res.header('auth-token',token).send(token);
 
     }
     async login(req, res) {
@@ -41,10 +43,19 @@ class AuthController {
         if(!validPass) return res.status(400).send('Email or password is wrong');
 
         //Create and assign a token
-        res.send('login');
+        const token = jwt.sign({_id: user.email}, process.env.TOKEN_SECRET);
+
+        res.header('auth-token',token).send(token);
+
     }
     async token(req, res){
-        res.send('login')
+        const token = req.header('authorization');
+        let decoded = jwt.decode(token);
+        let creator = decoded.email
+
+        const newToken = jwt.sign({_id: creator}, process.env.TOKEN_SECRET);
+
+        res.status(200).send(newToken);
     }
 }
 

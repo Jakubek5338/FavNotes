@@ -11,7 +11,7 @@ function Root() {
   return (
     <>
       {error ? <ErrorMessage /> : null}
-      {auth.user == 'login' ? <AuthenticatedApp /> : <UnauthenticatedApp />}
+      {auth.user != null ? <AuthenticatedApp /> : <UnauthenticatedApp />}
     </>
   );
 }
