@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './views/Root';
+import './index.css';
 import AppProviders from './providers/AppProviders';
 
 ReactDOM.render(

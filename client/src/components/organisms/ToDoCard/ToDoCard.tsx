@@ -1,0 +1,60 @@
+import React, { useState } from 'react';
+import { Formik, Field, Form } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators, State } from '../../../state';
+import Card from '../../molecules/Card/Card';
+import AddIcon from '../../../assets/icons/plus.svg';
+
+function ToDo() {
+  const dispatch = useDispatch();
+  const [isVisible, setIsVisible] = useState(false);
+  const setVisible = () => setIsVisible(!isVisible);
+  const state = useSelector((state: State) => state.todos);
+  const { additem } = bindActionCreators(actionCreators, dispatch);
+  return (
+    <>
+      <div>
+        <div className="w-full min-h-screen bg-gradient-to-r from-gray-900 via-gray-700 to-green-900 grid auto-rows-min 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+          {state.todos.map(({ title, _id }) => (
+            <Card type="todos" title={title} _id={_id} key={_id} />
+          ))}
+          <button
+            className="fixed right-5 bottom-5 w-16 h-16 bg-green-400 rounded-full z-0 flex justify-center items-center"
+            onClick={setVisible}
+          >
+            <img src={AddIcon} />
+          </button>
+          {isVisible ? (
+            <Formik
+              initialValues={{
+                title: '',
+              }}
+              onSubmit={async (values, { resetForm }) => {
+                additem(values.title, '', 'todos');
+                setVisible();
+                resetForm();
+              }}
+            >
+              <div className="w-3/4 md:w-2/5 p-4 fixed top-1/3 md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-500 rounded-lg border-2 border-green-500 flex flex-col justify-center items-center">
+                <Form className="w-full flex flex-col items-center justify-center">
+                  <>
+                    <div className="w-full flex justify-end p-4">
+                      <button onClick={setVisible}>Cancel</button>
+                    </div>
+                    <Field type="text" id="title" name="title" placeholder="title" className="w-4/5 my-2 rounded-lg" />
+                    <button className="bg-green-500 text-xs w-40 rounded-xl p-2 my-4" type="submit">
+                      Add ToDo
+                    </button>
+                  </>
+                </Form>
+              </div>
+            </Formik>
+          ) : null}
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default ToDo;

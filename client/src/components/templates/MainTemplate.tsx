@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import Header from '../organisms/Header/Header';
+import NavBar from '../organisms/NavBar/NavBar';
 
 const MainLayout: FC = ({ children }) => {
   return (
     <>
-      <Header />
+      <NavBar />
       {children}
     </>
   );

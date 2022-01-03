@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import NotesCard from '../components/atoms/NotesCard/NotesCard';
+import NotesCard from '../components/organisms/NotesCard/NotesCard';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../state';

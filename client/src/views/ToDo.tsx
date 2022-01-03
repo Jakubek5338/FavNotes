@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import ToDoCard from '../components/atoms/ToDoCard/ToDoCard';
+import ToDoCard from '../components/organisms/ToDoCard/ToDoCard';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../state';
