@@ -42,7 +42,7 @@ const UnauthenticatedApp = () => {
                   </button>
                 </Form>
                 <button onClick={register} className="pt-4">
-                  I wont to Login
+                  I want to Login
                 </button>
               </div>
             </div>
@@ -64,7 +64,7 @@ const UnauthenticatedApp = () => {
                   </button>
                 </Form>
                 <button onClick={register} className="pt-4">
-                  I wont to Register
+                  I want to Register
                 </button>
               </div>
             </div>
