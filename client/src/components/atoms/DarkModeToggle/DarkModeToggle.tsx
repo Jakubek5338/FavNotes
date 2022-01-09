@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import useDarkMode from '../../../hooks/useDarkMode';
 
 const variants = {
   open: { y: -1 },
@@ -7,17 +8,18 @@ const variants = {
 };
 
 function DarkModeToggle() {
-  const [colorTheme, setTheme] = useState(true);
+  const [colorTheme, setTheme] = useDarkMode();
+
   let state = 'closed';
-  if (colorTheme) {
+  if (colorTheme === 'light') {
     state = 'open';
   } else {
     state = 'closed';
   }
   return (
     <>
-      <div className="border-2 border-white rounded-lg p-2" onClick={() => setTheme(!colorTheme)}>
-        {colorTheme ? (
+      <div className="border-2 border-white rounded-lg p-2" onClick={() => setTheme(colorTheme)}>
+        {colorTheme === 'dark' ? (
           <motion.svg
             animate={state}
             variants={variants}

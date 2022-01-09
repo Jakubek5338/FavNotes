@@ -10,7 +10,7 @@ function NavLink({ children, to, ...props }: LinkProps) {
     <Link
       className={
         match
-          ? 'bg-green-600 w-36 md:w-20 h-8 rounded-lg flex justify-center items-center '
+          ? 'bg-red-500 dark:bg-green-600 w-36 md:w-20 h-8 rounded-lg flex justify-center items-center '
           : 'border-2 border-green-700 w-36 md:w-20 h-8 rounded-lg flex justify-center items-center'
       }
       to={to}
