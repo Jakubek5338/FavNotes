@@ -35,7 +35,7 @@ function MobileMenuList({ menuContext }: menuContextType) {
             animate={state}
             variants={variants}
             transition={transition}
-            className="absolute right-0 top-0 w-3/5 h-full bg-gray-800 z-10 pt-40 flex flex-col justify-between border-l-2 border-white"
+            className="absolute right-0 top-0 w-3/5 h-full dark:bg-gray-800 bg-white z-10 pt-40 flex flex-col justify-between border-l-2 dark:border-white border-black"
           >
             <div className="w-full h-48 flex flex-col items-center justify-around">
               {menuItems.map((item) => (

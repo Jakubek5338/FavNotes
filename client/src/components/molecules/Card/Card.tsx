@@ -17,7 +17,7 @@ function Card({ type, title, body, _id }: CardProps) {
     <>
       {type === 'notes' ? (
         <>
-          <div className="w-4/5 h-96 border-2 border-green-500 bg-gray-700 rounded-lg text-white m-auto my-5">
+          <div className="w-4/5 h-96 border-2 border-green-500 dark:bg-gray-700 bg-white rounded-lg dark:text-white text-black m-auto my-5">
             <div className=" w-full h-1/5 bg-green-500 p-4 text-2xl">
               <h1 className="h-2/3 overflow-hidden">{title}</h1>
             </div>
@@ -33,7 +33,7 @@ function Card({ type, title, body, _id }: CardProps) {
         </>
       ) : (
         <>
-          <div className="w-4/5 h-24 border-2 border-green-500 rounded-lg text-white m-auto my-5">
+          <div className="w-4/5 h-24 border-2 border-green-500 rounded-lg dark:text-white text-black m-auto my-5 dark:bg-transparent bg-white">
             <div className="h-1/2 flex justify-content items-center p-2">
               <h1 className=" overflow-hidden h-2/3">{title}</h1>
             </div>

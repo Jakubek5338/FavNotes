@@ -33,7 +33,7 @@ function MenuButton({ menuContext }: menuContextType) {
         <>
           <button
             onClick={setMenuOpen}
-            className="focus:border-primary hover:border-primary border-secondary text-primary inline-flex items-center justify-center p-1 w-14 h-14 focus:outline-none transition"
+            className="focus:border-primary hover:border-primary border-secondary dark:text-white text-black inline-flex items-center justify-center p-1 w-14 h-14 focus:outline-none transition"
           >
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <motion.rect

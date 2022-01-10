@@ -13,7 +13,7 @@ const menuItems = [
 
 function NavBar() {
   return (
-    <div className="w-full h-20 text-white bg-gray-800 flex justify-between px-6 border-b-2 border-white">
+    <div className="w-full h-20 dark:text-white text-black dark:bg-gray-800 bg-white flex justify-between px-6 border-b-2 dark:border-white border-black">
       <div className=" w-52 flex justify-center items-center">
         <Link to="/notes">
           <h1 className="text-xl">Happy Notes</h1>

@@ -17,7 +17,7 @@ function AddNewItem({ type }: AddNewItemProps) {
   return (
     <>
       <button
-        className="fixed right-5 bottom-5 w-16 h-16 bg-green-400 rounded-full z-0 flex justify-center items-center"
+        className="fixed right-5 bottom-5 w-16 h-16 dark:bg-green-400 bg-white rounded-full z-0 flex justify-center items-center"
         onClick={setVisible}
       >
         <img src={AddIcon} />

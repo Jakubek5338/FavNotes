@@ -16,12 +16,12 @@ function Sides() {
   return (
     <>
       <div>
-        <div className="w-full min-h-screen bg-gradient-to-r from-gray-900 via-gray-700 to-green-900 grid auto-rows-min 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+        <div className="w-full min-h-screen bg-gradient-to-r dark:from-gray-900 from-white dark:via-gray-700 via-gray-400 dark:to-green-900 to-green-500 grid auto-rows-min 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
           {state.sides.map(({ title, _id }) => (
             <Card type="sides" title={title} _id={_id} key={_id} />
           ))}
           <button
-            className="fixed right-5 bottom-5 w-16 h-16 bg-green-400 rounded-full z-0 flex justify-center items-center"
+            className="fixed right-5 bottom-5 w-16 h-16 dark:bg-green-400 bg-white rounded-full z-0 flex justify-center items-center"
             onClick={setVisible}
           >
             <img src={AddIcon} />
@@ -37,7 +37,7 @@ function Sides() {
                 resetForm();
               }}
             >
-              <div className="w-3/4 md:w-2/5 p-4 fixed top-1/3 md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-500 rounded-lg border-2 border-green-500 flex flex-col justify-center items-center">
+              <div className="w-3/4 md:w-2/5 p-4 fixed top-1/3 md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 dark:bg-gray-500 bg-gray-200 rounded-lg border-2 border-green-500 flex flex-col justify-center items-center">
                 <Form className="w-full flex flex-col items-center justify-center">
                   <>
                     <div className="w-full flex justify-end p-4">
