@@ -29,22 +29,29 @@ function AddNewItem({ type }: AddNewItemProps) {
             body: '',
           }}
           onSubmit={async (values, { resetForm }) => {
-            additem(values.title, values.body, 'notes');
+            additem(values.title, values.body, type);
             resetForm();
           }}
         >
-          <div className="w-3/4 md:w-2/5 p-4 fixed top-1/3 md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-500 rounded-lg border-2 border-green-500 flex flex-col justify-center items-center">
-            <Form>
-              <Field type="text" id="title" name="title" placeholder="title" className="w-4/5 my-2 rounded-lg" />
-              {type === 'notes' ? (
-                <>
-                  <Field type="textarea" id="body" name="body" placeholder="body" />
-                  <button className="bg-green-500 text-xs w-40 rounded-xl p-2 my-4" onClick={setVisible}>
-                    Add Note
-                  </button>
-                </>
-              ) : null}
-              <button type="submit">Add</button>
+          <div className="w-3/4 md:w-2/5 p-4 fixed top-1/3 md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 dark:bg-gray-500 bg-gray-200 rounded-lg border-2 border-green-500 flex flex-col justify-center items-center">
+            <Form className="w-full flex flex-col items-center justify-center">
+              <>
+                <div className="w-full flex justify-end p-4">
+                  <button onClick={setVisible}>Cancel</button>
+                </div>
+                <Field type="text" id="title" name="title" placeholder="title" className="w-4/5 my-2 rounded-lg" />
+                <Field
+                  as="textarea"
+                  type="textarea"
+                  id="body"
+                  name="body"
+                  placeholder="body"
+                  className="w-4/5 my-2 rounded-lg h-40"
+                />
+                <button className="bg-green-500 text-xs w-40 rounded-xl p-2 my-4" type="submit">
+                  Add Note
+                </button>
+              </>
             </Form>
           </div>
         </Formik>
