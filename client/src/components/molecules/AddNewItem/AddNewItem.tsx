@@ -30,6 +30,7 @@ function AddNewItem({ type }: AddNewItemProps) {
           }}
           onSubmit={async (values, { resetForm }) => {
             additem(values.title, values.body, type);
+            setVisible();
             resetForm();
           }}
         >
@@ -40,14 +41,16 @@ function AddNewItem({ type }: AddNewItemProps) {
                   <button onClick={setVisible}>Cancel</button>
                 </div>
                 <Field type="text" id="title" name="title" placeholder="title" className="w-4/5 my-2 rounded-lg" />
-                <Field
-                  as="textarea"
-                  type="textarea"
-                  id="body"
-                  name="body"
-                  placeholder="body"
-                  className="w-4/5 my-2 rounded-lg h-40"
-                />
+                {type === 'notes' ? (
+                  <Field
+                    as="textarea"
+                    type="textarea"
+                    id="body"
+                    name="body"
+                    placeholder="body"
+                    className="w-4/5 my-2 rounded-lg h-40"
+                  />
+                ) : null}
                 <button className="bg-green-500 text-xs w-40 rounded-xl p-2 my-4" type="submit">
                   Add Note
                 </button>
