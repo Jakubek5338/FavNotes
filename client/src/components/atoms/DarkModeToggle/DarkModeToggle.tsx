@@ -18,7 +18,10 @@ function DarkModeToggle() {
   }
   return (
     <>
-      <div className="border-2 dark:border-white border-black rounded-lg p-2" onClick={() => setTheme(colorTheme)}>
+      <div
+        className="border-2 dark:border-white dark:hover:border-gray-400 hover:border-gray-400 border-black rounded-lg p-2 cursor-pointer duration-100 transition-all ease-in-out"
+        onClick={() => setTheme(colorTheme)}
+      >
         {colorTheme === 'dark' ? (
           <motion.svg
             animate={state}

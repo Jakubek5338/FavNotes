@@ -16,7 +16,9 @@ function NavBar() {
     <div className="w-full h-20 dark:text-white text-black dark:bg-gray-800 bg-white flex justify-between px-6 border-b-2 dark:border-white border-black">
       <div className=" w-52 flex justify-center items-center">
         <Link to="/notes">
-          <h1 className="text-xl">Happy Notes</h1>
+          <h1 className="text-xl dark:hover:text-gray-500 hover:text-gray-600 duration-100 transition-all ease-in-out">
+            Happy Notes
+          </h1>
         </Link>
       </div>
       <div className=" flex justify-center items-center">

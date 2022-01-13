@@ -25,7 +25,10 @@ function Card({ type, title, body, _id }: CardProps) {
               <div className="w-full h-full overflow-hidden">
                 <h2>{body}</h2>
               </div>
-              <button onClick={() => removeitem(_id, type)} className=" bg-gray-400 rounded-xl p-2 text-xs w-24">
+              <button
+                onClick={() => removeitem(_id, type)}
+                className=" bg-gray-400 rounded-xl p-2 text-xs w-24 hover:bg-gray-500 duration-100 transition-all ease-in-out"
+              >
                 REMOVE
               </button>
             </div>
@@ -38,12 +41,17 @@ function Card({ type, title, body, _id }: CardProps) {
               <h1 className=" overflow-hidden h-2/3">{title}</h1>
             </div>
             <div className="h-1/2 flex justify-around items-center p-1">
-              <button onClick={() => removeitem(_id, type)} className=" bg-gray-400 rounded-xl p-2 text-xs w-24">
+              <button
+                onClick={() => removeitem(_id, type)}
+                className=" bg-gray-400 rounded-xl p-2 text-xs w-24 hover:bg-gray-500 duration-100 transition-all ease-in-out"
+              >
                 REMOVE
               </button>
               {type === 'sides' ? (
                 <a target="_blank" href={title} rel="noopener noreferrer">
-                  <button className=" bg-green-500 text-xs w-40 rounded-xl p-2">Go to side</button>
+                  <button className=" bg-green-500 text-xs w-40 rounded-xl p-2 hover:bg-green-600 duration-100 transition-all ease-in-out">
+                    Go to side
+                  </button>
                 </a>
               ) : null}
             </div>

@@ -36,12 +36,12 @@ const UnauthenticatedApp = () => {
                   </div>
                   <button
                     type="submit"
-                    className="bg-green-500 text-white w-36 md:w-20 h-8 rounded-lg flex justify-center items-center"
+                    className="bg-green-500 hover:bg-green-600 duration-100 transition-all ease-in-out text-white w-36 md:w-20 h-8 rounded-lg flex justify-center items-center"
                   >
                     Register
                   </button>
                 </Form>
-                <button onClick={register} className="pt-4">
+                <button onClick={register} className="pt-4 hover:text-gray-600 duration-100 transition-all ease-in-ou">
                   I want to Login
                 </button>
               </div>
@@ -58,12 +58,12 @@ const UnauthenticatedApp = () => {
                   </div>
                   <button
                     type="submit"
-                    className="bg-green-500 text-white w-36 md:w-20 h-8 rounded-lg flex justify-center items-center"
+                    className="bg-green-500 hover:bg-green-600 duration-100 transition-all ease-in-out text-white w-36 md:w-20 h-8 rounded-lg flex justify-center items-center"
                   >
                     Login
                   </button>
                 </Form>
-                <button onClick={register} className="pt-4">
+                <button onClick={register} className="pt-4 hover:text-gray-600 duration-100 transition-all ease-in-out">
                   I want to Register
                 </button>
               </div>
