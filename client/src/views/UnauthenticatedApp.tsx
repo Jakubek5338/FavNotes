@@ -32,7 +32,13 @@ const UnauthenticatedApp = () => {
                 <Form className="w-full h-1/3 flex justify-around items-center flex-col">
                   <div className="w-full flex justify-center items-center flex-col">
                     <Field type="text" id="email" name="email" placeholder="email" className="w-4/5 mb-2" />
-                    <Field type="text" id="password" name="password" placeholder="password" className="w-4/5 mt-2" />
+                    <Field
+                      type="password"
+                      id="password"
+                      name="password"
+                      placeholder="password"
+                      className="w-4/5 mt-2"
+                    />
                   </div>
                   <button
                     type="submit"
@@ -54,7 +60,13 @@ const UnauthenticatedApp = () => {
                 <Form className="w-full h-1/3 flex justify-around items-center flex-col">
                   <div className="w-full flex justify-center items-center flex-col">
                     <Field type="text" id="email" name="email" placeholder="email" className="w-4/5 mb-2" />
-                    <Field type="text" id="password" name="password" placeholder="password" className="w-4/5 mt-2" />
+                    <Field
+                      type="password"
+                      id="password"
+                      name="password"
+                      placeholder="password"
+                      className="w-4/5 mt-2"
+                    />
                   </div>
                   <button
                     type="submit"
