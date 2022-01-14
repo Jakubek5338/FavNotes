@@ -4,7 +4,7 @@ MERN Stack app to make notes in three different categories. App have LogIn syste
 # Desription
 For make this web app i used React with TypeScript and redux for frontend, Express Js with MongoDB for Backend. App use JWT for authentication users. 
 
-# How to Install and Run the Project
+# Build the application in your local environment
 
 Frontend
 
@@ -21,3 +21,7 @@ Frontend
 Docker
 
 - `docker-compose up --build`
+
+# Run the app
+
+- `docker-compose up`
