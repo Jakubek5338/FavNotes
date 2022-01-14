@@ -8,7 +8,7 @@ const variants = {
 };
 
 function DarkModeToggle() {
-  const [colorTheme, setTheme] = useDarkMode();
+  const [colorTheme, setDarkMode] = useDarkMode();
 
   let state = 'closed';
   if (colorTheme === 'light') {
@@ -19,8 +19,8 @@ function DarkModeToggle() {
   return (
     <>
       <div
-        className="border-2 dark:border-white dark:hover:border-gray-400 hover:border-gray-400 border-black rounded-lg p-2 cursor-pointer duration-100 transition-all ease-in-out"
-        onClick={() => setTheme(colorTheme)}
+        className="border-2 dark:border-white dark:hover:border-gray-400 hover:border-gray-300 border-black rounded-lg p-2 cursor-pointer duration-100 transition-all ease-in-out"
+        onClick={setDarkMode}
       >
         {colorTheme === 'dark' ? (
           <motion.svg
