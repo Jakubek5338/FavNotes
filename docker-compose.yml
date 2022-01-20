@@ -11,6 +11,8 @@ services:
       - "./client/node_modules:/src/node_modules"
     stdin_open: true
   server:
+    environment:
+      DB_CONNECT: mongodb://mongo:27017/HappyNotes
     container_name: server-container
     build: ./server
     ports:
