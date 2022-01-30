@@ -4,7 +4,7 @@ services:
   client:
     container_name: client-container
     environment:
-      API_URL: 'http://localhost:8080'
+      REACT_APP_API_URL: http://localhost:8080
     build: ./client
     ports:
       - "3000:3000"
@@ -15,8 +15,8 @@ services:
   server:
     container_name: server-container
     environment:
-      DB_CONNECT: 'mongodb://mongo:27017/HappyNotes'
-      TOKEN_SECRET: '1234'
+      DB_CONNECT: mongodb://mongo:27017/HappyNotes
+      TOKEN_SECRET: afbneofjbnouefnvijsdfnbvweruin
     build: ./server
     ports:
       - "8080:8080"

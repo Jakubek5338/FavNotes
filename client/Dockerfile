@@ -4,5 +4,5 @@ WORKDIR /app
 COPY package.json /app
 RUN npm install
 COPY . /app
-ENV API_URL =$API_URL
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
 CMD npm start
