@@ -19,7 +19,7 @@ export const AuthProvider: FC = ({ children }) => {
     if (token) {
       (async () => {
         try {
-          const response = await axios.get('http://localhost:8080/api/user/me', {
+          const response = await axios.get(`${process.env.DB_CONNECT}/api/user/me`, {
             headers: {
               authorization: token,
             },
@@ -34,7 +34,7 @@ export const AuthProvider: FC = ({ children }) => {
 
   const signIn = async ({ email, password }: ISignInProps) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/user/login', {
+      const response = await axios.post(`${process.env.DB_CONNECT}/api/user/login`, {
         email,
         password,
       });
@@ -48,7 +48,7 @@ export const AuthProvider: FC = ({ children }) => {
   const signUp = async ({ email, password }: ISignInProps) => {
     console.log('register' + email, password);
     try {
-      const response = await axios.post('http://localhost:8080/api/user/register', {
+      const response = await axios.post(`${process.env.DB_CONNECT}/api/user/register`, {
         email,
         password,
       });

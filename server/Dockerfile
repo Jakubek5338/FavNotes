@@ -12,4 +12,7 @@ RUN pkill -f node
 
 COPY . .
 
+ENV DB_CONNECT=$DB_CONNECT
+ENV TOKEN_SECRET =$TOKEN_SECRET
+
 CMD ["nodemon", "index.js"]
