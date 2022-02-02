@@ -17,6 +17,7 @@ services:
     environment:
       DB_CONNECT: mongodb://mongo:27017/HappyNotes
       TOKEN_SECRET: afbneofjbnouefnvijsdfnbvweruin
+      PORT: 8080
     build: ./server
     ports:
       - "8080:8080"

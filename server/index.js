@@ -18,6 +18,8 @@ dotenv.config();
 
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true});
 
-app.listen(8080, function () {
-    console.log('App listening at http://localhost:8080');
+const port = process.env.PORT
+
+app.listen(port, function () {
+    console.log(`App listening at http://localhost:${port}`);
 })
